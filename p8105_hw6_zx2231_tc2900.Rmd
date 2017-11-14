@@ -1,0 +1,36 @@
+---
+title: "p8105_hw6_zx2231_tc2900"
+author: "Chen Shaoxuan"
+date: "11/14/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r message=FALSE}
+library(tidyverse)
+library(janitor)
+library(stringr)
+library(forcats)
+library(viridis)
+library(plotly)
+library(ggthemes)
+library(ggridges)
+```
+
+```{r}
+noaa = read_csv("./data/nynoaadat.zip")%>% 
+  clean_names()
+```
+
+#Make the bar plot of the missing value of snow.
+```{r}
+noaa %>%
+  group_by(id) %>%
+  summarize(n_missing_tmax = sum(is.na(tmax)), n_missing_snow = sum(is.na(snow))) %>%
+  gather(key = parameter, value = n_missing, n_missing_tmax:n_missing_snow) %>% 
+   filter(parameter == "n_missing_snow") 
+
+```
