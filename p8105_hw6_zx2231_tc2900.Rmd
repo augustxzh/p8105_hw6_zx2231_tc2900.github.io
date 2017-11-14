@@ -31,6 +31,8 @@ noaa %>%
   group_by(id) %>%
   summarize(n_missing_tmax = sum(is.na(tmax)), n_missing_snow = sum(is.na(snow))) %>%
   gather(key = parameter, value = n_missing, n_missing_tmax:n_missing_snow) %>% 
-   filter(parameter == "n_missing_snow") 
+   filter(parameter == "n_missing_snow") %>% 
+  plot_ly(x = ~parameter, y = ~n_missing, color = ~id, colors = "Set1",
+       type = "bar" )
 
 ```
