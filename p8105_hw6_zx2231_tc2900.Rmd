@@ -36,3 +36,10 @@ noaa %>%
        type = "bar" )
 
 ```
+
+#maked
+```{r}
+noaa %>% 
+   separate(date, into = c("year", "month", "day"), sep = "-")                  
+```
+
