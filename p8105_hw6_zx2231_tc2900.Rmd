@@ -41,6 +41,9 @@ noaa %>%
 ```{r}
 noaa %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
-   filter(snow < 200 & snow > 0)                   
+   filter(snow < 200 & snow > 0) %>% 
+  plot_ly(x = ~year, y = ~snow, color = ~year,
+          colors = "Set1",                                       
+          type = "box")                  
 ```
 
