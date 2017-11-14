@@ -40,6 +40,7 @@ noaa %>%
 #maked
 ```{r}
 noaa %>% 
-   separate(date, into = c("year", "month", "day"), sep = "-")                  
+   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+   filter(snow < 200 & snow > 0)                   
 ```
 
