@@ -37,7 +37,7 @@ noaa %>%
 
 ```
 
-#maked
+#make a ridge plot showing the distribution of snowfall values for each year
 ```{r}
 noaa %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
@@ -45,5 +45,12 @@ noaa %>%
   plot_ly(x = ~year, y = ~snow, color = ~year,
           colors = "Set1",                                       
           type = "box")                  
+```
+
+#make a scatterplot 
+```{r}
+noaa %>% 
+   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+   filter(id == "USC00309516")
 ```
 
