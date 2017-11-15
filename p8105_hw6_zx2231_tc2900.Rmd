@@ -29,7 +29,8 @@ noaa = read_csv("./data/nynoaadat.zip")%>%
 ```{r}
 noaa %>%
   mutate(tmax = as.numeric(tmax),
-         tmin = as.numeric(tmin))
+         tmin = as.numeric(tmin)) %>% 
+  mutate(t_range = tmax-tmin)
 ```
 
 #make a box plot showing the distribution of snowfall <200 for each year
