@@ -50,11 +50,14 @@ noaa %>%
 #make a scatterplot of the snow depth of station USC00309516.
 ```{r}
 noaa %>% 
-  #na.omit() %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
    filter(id == "USC00309516") %>% 
    filter(snwd < 2000 & snwd > 0) %>%  
    filter(snow < 3000 & snow > 0) %>% 
-   mutate(hover_text = str_c("Precipitation(tenths of mm):", prcp))
+   mutate(hover_text = str_c("Precipitation(tenths of mm):", prcp)) %>%  
+  plot_ly(x = ~snow, y = ~snwd, color = ~year,
+          text = ~hover_text,
+          colors = "Set1",                                       
+          type = "scatter",  alpha = 0.5)  
 ```
 
