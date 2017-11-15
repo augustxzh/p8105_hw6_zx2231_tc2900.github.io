@@ -27,27 +27,27 @@ noaa = read_csv("./data/nynoaadat.zip")%>%
 
 #Make the bar plot of the missing value of snow.
 ```{r}
-noaa %>%
-  group_by(id) %>%
-  summarize(n_missing_tmax = sum(is.na(tmax)), n_missing_snow = sum(is.na(snow))) %>%
-  gather(key = parameter, value = n_missing, n_missing_tmax:n_missing_snow) %>% 
-   filter(parameter == "n_missing_snow") %>% 
-  plot_ly(x = ~parameter, y = ~n_missing, color = ~id, colors = "Set1",
-       type = "bar" )
 
 ```
 
-#make a ridge plot showing the distribution of snowfall values for each year
+#make a box plot showing the distribution of snowfall <200 for each year
 ```{r}
 noaa %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
    filter(snow < 200 & snow > 0) %>% 
   plot_ly(x = ~year, y = ~snow, color = ~year,
           colors = "Set1",                                       
-          type = "box")                  
+          type = "box") 
+
+noaa %>% 
+   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+   filter(prcp < 1000 & prcp > 0) %>% 
+  plot_ly(x = ~year, y = ~prcp, color = ~year,
+          colors = "Set1",                                       
+          type = "box") 
 ```
 
-#make a scatterplot 
+#make a scatterplot of the snow depth of station USC00309516.
 ```{r}
 noaa %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
