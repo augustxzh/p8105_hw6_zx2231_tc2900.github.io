@@ -54,6 +54,7 @@ noaa %>%
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
    filter(id == "USC00309516") %>% 
    filter(snwd < 2000 & snwd > 0) %>%  
-   filter(snow < 3000 & snow > 0) 
+   filter(snow < 3000 & snow > 0) %>% 
+   mutate(hover_text = str_c("Precipitation(tenths of mm):", prcp))
 ```
 
