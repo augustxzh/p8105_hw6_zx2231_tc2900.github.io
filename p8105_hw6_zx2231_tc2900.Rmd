@@ -45,13 +45,6 @@ noaa %>%
   plot_ly(x = ~year, y = ~snow, color = ~year,
           colors = "Set1",                                       
           type = "box") 
-
-noaa %>% 
-   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
-   filter(prcp < 1000 & prcp > 0) %>% 
-  plot_ly(x = ~year, y = ~prcp, color = ~year,
-          colors = "Set1",                                       
-          type = "box") 
 ```
 
 #make a scatterplot of the snow depth of station USC00309516.
@@ -60,10 +53,20 @@ noaa %>%
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
    filter(id == "USC00309516") %>% 
    filter(snwd < 2000 & snwd > 0) %>% 
-   mutate(hover_text = str_c("Snow depth:", snow)) %>%  
-  plot_ly(x = ~year, y = ~snwd, color = ~year,
+   mutate(hover_text = str_c("Snowfall (mm):", snow)) %>%  
+  plot_ly(x = ~month, y = ~snwd, color = ~year,
           text = ~hover_text,
           colors = "Set1",                                       
-          type = "scatter", mode = "marker", alpha = 0.5)   
+          type = "scatter",  alpha = 0.5)  
+
+noaa %>% 
+   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+   filter(id == "USC00309516") %>% 
+   filter(snwd < 2000 & snwd > 0) %>% 
+   mutate(hover_text = str_c("Snowfall (mm):", snow)) %>%  
+  plot_ly(x = ~prcp, y = ~snwd, color = ~year,
+          text = ~hover_text,
+          colors = "Set1",                                       
+          type = "scatter",  alpha = 0.5)  
 ```
 
