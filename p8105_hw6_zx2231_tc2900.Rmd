@@ -49,6 +49,11 @@ noaa %>%
 
 #make a scatterplot of the snow depth of station USC00309516.
 ```{r}
-
+noaa %>% 
+  #na.omit() %>% 
+   separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+   filter(id == "USC00309516") %>% 
+   filter(snwd < 2000 & snwd > 0) %>%  
+   filter(snow < 3000 & snow > 0) 
 ```
 
