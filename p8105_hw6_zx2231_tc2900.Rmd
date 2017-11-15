@@ -27,7 +27,9 @@ noaa = read_csv("./data/nynoaadat.zip")%>%
 
 #Make the bar plot of the missing value of snow.
 ```{r}
-
+noaa %>%
+  mutate(tmax = as.numeric(tmax),
+         tmin = as.numeric(tmin))
 ```
 
 #make a box plot showing the distribution of snowfall <200 for each year
