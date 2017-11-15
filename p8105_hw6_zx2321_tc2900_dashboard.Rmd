@@ -5,6 +5,10 @@ output:
     vertical_layout: scroll
 ---
 
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
 ```{r}
 library(tidyverse)
 library(janitor)
