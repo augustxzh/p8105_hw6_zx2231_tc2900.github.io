@@ -32,7 +32,9 @@ noaa %>%
          tmin = as.numeric(tmin)) %>% 
   mutate(t_range = tmax-tmin) %>% 
   group_by(id) %>%
-  summarise(t_range_max = max(t_range))
+  summarise(t_range_max = max(t_range)) %>% 
+  plot_ly(x = ~id, y = ~t_range_max, color = ~id, colors = "Set1",
+       type = "bar" )
 ```
 
 #make a box plot showing the distribution of snowfall <200 for each year
