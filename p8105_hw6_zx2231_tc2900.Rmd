@@ -52,6 +52,11 @@ noaa %>%
 noaa %>% 
    separate(date, into = c("year", "month", "day"), sep = "-") %>% 
    filter(id == "USC00309516") %>% 
-   filter(snwd < 2000 & snwd > 0)
+   filter(snwd < 2000 & snwd > 0) %>% 
+   mutate(hover_text = str_c("Snow depth:", snow)) %>%  
+  plot_ly(x = ~year, y = ~snwd, color = ~year,
+          text = ~hover_text,
+          colors = "Set1",                                       
+          type = "scatter", mode = "marker", alpha = 0.5)   
 ```
 
