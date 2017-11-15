@@ -3,14 +3,14 @@ output_dir: "."
 navbar:
   title: "Home"
   right:
-    - text: "About"
-      href: about.html
+    - text: "plotly"
+      href: p8105_hw6_zx2231_tc2900.html
+    - text: "dashboard"
+      href: p8105_hw6_zx2321_tc2900_dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<augustxzh@gmail.com>
     - icon: fa-github fa-lg
       href: https://github.com/augustxzh
 output:
-  html_document:
-    theme: spacelab
-    highlight: kate
+    html_document
     

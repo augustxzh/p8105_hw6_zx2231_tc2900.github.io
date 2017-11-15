@@ -1,13 +1,9 @@
 ---
-title: "p8105_hw6_zx2231_tc2900"
+title: "p8105_hw6_zx2231_tc2900_dashboard"
 output: 
   flexdashboard::flex_dashboard:
     vertical_layout: scroll
 ---
-
-```{r setup, include=FALSE}
-library(flexdashboard)
-```
 
 ```{r}
 library(tidyverse)
