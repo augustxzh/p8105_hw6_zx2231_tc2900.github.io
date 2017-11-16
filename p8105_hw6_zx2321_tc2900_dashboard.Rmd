@@ -20,7 +20,7 @@ library(plotly)
 ```
 
 ```{r}
-noaa = read_csv("./data/nynoaadat.zip")%>% 
+noaa = read_csv("./data/nynoaadat.zip") %>% 
   clean_names()
 ```
 
@@ -30,7 +30,9 @@ noaa = read_csv("./data/nynoaadat.zip")%>%
 noaa %>%
   mutate(tmax = as.numeric(tmax),
          tmin = as.numeric(tmin)) %>% 
-  mutate(t_range = tmax-tmin) %>% 
+  mutate(t_range = tmax - tmin) %>% 
+  select(id, t_range) %>%
+  na.omit %>%
   group_by(id) %>%
   summarise(t_range_max = max(t_range)) %>% 
   plot_ly(x = ~id, y = ~t_range_max / 10, color = ~id, colors = "Set1",

@@ -21,7 +21,7 @@ library(ggridges)
 ```
 
 ```{r}
-noaa = read_csv("./data/nynoaadat.zip")%>% 
+noaa = read_csv("./data/nynoaadat.zip") %>% 
   clean_names()
 ```
 
@@ -30,11 +30,15 @@ noaa = read_csv("./data/nynoaadat.zip")%>%
 noaa %>%
   mutate(tmax = as.numeric(tmax),
          tmin = as.numeric(tmin)) %>% 
-  mutate(t_range = tmax-tmin) %>% 
+  mutate(t_range = tmax - tmin) %>% 
+  select(id, t_range) %>%
+  na.omit %>%
   group_by(id) %>%
   summarise(t_range_max = max(t_range)) %>% 
-  plot_ly(x = ~id, y = ~t_range_max, color = ~id, colors = "Set1",
-       type = "bar" )
+  plot_ly(x = ~id, y = ~t_range_max / 10, color = ~id, colors = "Set1",
+       type = "bar" ) %>%
+      layout(xaxis = list(title = "station id"), yaxis = list(title = "maximum daily temperature range (Celcius degree)"))
+
 ```
 
 #make a box plot showing the distribution of snowfall <200 for each year
@@ -44,7 +48,8 @@ noaa %>%
    filter(snow < 200 & snow > 0) %>% 
   plot_ly(x = ~year, y = ~snow, color = ~year,
           colors = "Set1",                                       
-          type = "box") 
+          type = "box") %>%
+  layout(xaxis = list(title = "year"), yaxis = list(title = "daily snowfall (mm)"))
 ```
 
 #make a scatterplot of the snow depth of station USC00309516.
@@ -58,6 +63,7 @@ noaa %>%
   plot_ly(x = ~snow, y = ~snwd, color = ~year,
           text = ~hover_text,
           colors = "Set1",                                       
-          type = "scatter",  alpha = 0.5)  
+          type = "scatter",  alpha = 0.5)  %>%
+  layout(xaxis = list(title = "daily snowfall (mm)"), yaxis = list(title = "daily snowdepth (mm)"))
 ```
 
