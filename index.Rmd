@@ -10,6 +10,15 @@ author: "Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)""
 
 
 <br>
+The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world.
+GHCN-Daily contains records from over 100,000 stations in 180 countries and territories. NCEI provides numerous daily variables, including maximum and minimum temperature, total daily precipitation, snowfall, and snow depth; however, about one half of the stations report precipitation only. Both the record length and period of record vary by station and cover intervals ranging from less than a year to more than 175 years.
+
+Dashboard dataset relevant processing steps:
+In the bar-plot, we first transfer the class of the tmax and tmin to numeric and create a new variable, t-range, which indicates the range of the temperature in one day. Then we choose the max range of each station and make the plot.
+
+In the box plot, we first sepetate the "date" variable in to year, month, day. Secondely, we limit our dataset to the snow fall which less than 200mm and greater than 0mm. Then we make the plot about the year and the snowfall, and color the box by year.
+
+In the scatterplot, we first seperate our data into year, month, day. Then we filter the data about station"USC00309516". We want to find the relationship between snowfall and snow depth. Then we omit the na in variables "snow" and "snwd". Finally, we make the plot about snowfall and snowdepth, and we also add the hovertext which contains the information about the precipitation.
 
 
 Since the original dataset is to big for the server, the original dataset was subsetted to only include the observations ranged from the year of 2000 to the year of 2010. The resulting subset was saved to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process.
