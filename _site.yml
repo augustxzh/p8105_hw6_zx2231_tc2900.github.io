@@ -11,6 +11,9 @@ navbar:
       href: mailto:<augustxzh@gmail.com>
     - icon: fa-github fa-lg
       href: https://github.com/augustxzh
+    - icon: fa-github fa-lg
+      href: https://github.com/augustxzh/p8105_hw4_tc2900_zx2231  
 output:
     html_document
+     theme: readable
     

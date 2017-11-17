@@ -9,3 +9,15 @@ title: "p8105_hw6_zx2231_tc2900"
 <br>
 
 Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)
+
+1: Here is our [**dashboard**](p8105_hw6_zx2231_tc2900_dashboard.html)
+
+2: Here is our [**Shiny webpage**](https://augustxzh.shinyapps.io/p8105_hw6_shiny_zx2231_tc2900shiny/)
+
+3: Here is our [**dashboard repository**](https://github.com/augustxzh/p8105_hw6_zx2231_tc2900.github.io)
+
+4: Here is our [**Shiny repository**](https://github.com/augustxzh/p8105_hw6_shiny_zx2231_tc2900.shiny.io)
+
+ 
+
+

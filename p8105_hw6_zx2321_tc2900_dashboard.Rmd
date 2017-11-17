@@ -24,7 +24,7 @@ noaa = read_csv("./data/nynoaadat.zip") %>%
   clean_names()
 ```
 
-### Chart 1
+### Daily temperature range observed at each station
     
 ```{r}
 noaa %>%
@@ -40,7 +40,7 @@ noaa %>%
       layout(xaxis = list(title = "station id"), yaxis = list(title = "maximum daily temperature range (Celcius degree)"))
 ```
     
-### Chart 2
+### Daily snowfall in each year
 
 ```{r}
 noaa %>% 
@@ -52,7 +52,7 @@ noaa %>%
   layout(xaxis = list(title = "year"), yaxis = list(title = "daily snowfall (mm)"))
 ```
 
-### Chart 3
+### Association between snowfall and snowdepth in Station "USC00309516"
 
 ```{r}
 noaa %>% 
