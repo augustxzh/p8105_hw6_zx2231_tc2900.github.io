@@ -1,13 +1,12 @@
 ---
 title: "p8105_hw6_zx2231_tc2900" 
-author: "Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)""
+author: "Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)"
+output: html_document
 ---
 
 <br>
 
 ### **p8105_hw6_zx2231_tc2900**
-<br>
-
 
 <br>
 The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world.

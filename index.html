@@ -9,13 +9,14 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)" />
 
 
 <title>p8105_hw6_zx2231_tc2900</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -98,34 +99,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 66px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 </style>
 
@@ -183,7 +184,7 @@ $(document).ready(function () {
   <a href="p8105_hw6_zx2231_tc2900.html">plotly</a>
 </li>
 <li>
-  <a href="p8105_hw6_zx2321_tc2900_dashboard.html">dashboard</a>
+  <a href="p8105_hw6_zx2231_tc2900_dashboard.html">dashboard</a>
 </li>
 <li>
   <a href="mailto:&lt;augustxzh@gmail.com&gt;">
@@ -192,13 +193,13 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
-  <a href="https://github.com/augustxzh">
+  <a href="https://github.com/augustxzh/p8105_hw6_zx2231_tc2900.github.io">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="https://github.com/augustxzh/p8105_hw4_tc2900_zx2231">
+  <a href="https://github.com/augustxzh/p8105_hw6_shiny_zx2231_tc2900.shiny.io">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -213,6 +214,7 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">p8105_hw6_zx2231_tc2900</h1>
+<h4 class="author"><em>Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)</em></h4>
 
 </div>
 
@@ -220,8 +222,20 @@ $(document).ready(function () {
 <p><br></p>
 <div id="p8105_hw6_zx2231_tc2900" class="section level3">
 <h3><strong>p8105_hw6_zx2231_tc2900</strong></h3>
-<p><br></p>
-<p>Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)</p>
+<p><br> The National Oceanic and Atmospheric Association (NOAA) of the National Centers for Environmental Information (NCEI) provides public access to some weather data, including the GHCN (Global Historical Climatology Network)-Daily database of summary statistics from weather stations around the world. GHCN-Daily contains records from over 100,000 stations in 180 countries and territories. NCEI provides numerous daily variables, including maximum and minimum temperature, total daily precipitation, snowfall, and snow depth; however, about one half of the stations report precipitation only. Both the record length and period of record vary by station and cover intervals ranging from less than a year to more than 175 years.</p>
+<p>Dashboard dataset relevant processing steps: In the bar-plot, we first transfer the class of the tmax and tmin to numeric and create a new variable, t-range, which indicates the range of the temperature in one day. Then we choose the max range of each station and make the plot.</p>
+<p>In the box plot, we first sepetate the “date” variable in to year, month, day. Secondely, we limit our dataset to the snow fall which less than 200mm and greater than 0mm. Then we make the plot about the year and the snowfall, and color the box by year.</p>
+<p>In the scatterplot, we first seperate our data into year, month, day. Then we filter the data about station“USC00309516”. We want to find the relationship between snowfall and snow depth. Then we omit the na in variables “snow” and “snwd”. Finally, we make the plot about snowfall and snowdepth, and we also add the hovertext which contains the information about the precipitation.</p>
+<p>Since the original dataset is to big for the server, the original dataset was subsetted to only include the observations ranged from the year of 2000 to the year of 2010. The resulting subset was saved to a new csv file named “nynoaadat_2000_2010.csv”. The following code was used to perform the subsetting process.</p>
+<pre class="r"><code>noaa_subset = read_csv(&quot;nynoaadat.zip&quot;) %&gt;%
+  clean_names() %&gt;%
+  separate(date, into = c(&quot;year&quot;, &quot;month&quot;, &quot;day&quot;), sep = &quot;-&quot;) %&gt;%
+  filter(year &gt; 1999)
+write_csv(noaa_subset, &quot;nynoaadat_2000_2010.csv&quot;)</code></pre>
+<p>1: Here is our <a href="p8105_hw6_zx2231_tc2900_dashboard.html"><strong>dashboard</strong></a></p>
+<p>2: Here is our <a href="https://augustxzh.shinyapps.io/p8105_hw6_shiny_zx2231_tc2900shiny/"><strong>Shiny webpage</strong></a></p>
+<p>3: Here is our <a href="https://github.com/augustxzh/p8105_hw6_zx2231_tc2900.github.io"><strong>dashboard repository</strong></a></p>
+<p>4: Here is our <a href="https://github.com/augustxzh/p8105_hw6_shiny_zx2231_tc2900.shiny.io"><strong>Shiny repository</strong></a></p>
 </div>
 
 

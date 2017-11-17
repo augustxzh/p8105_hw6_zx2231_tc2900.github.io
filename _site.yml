@@ -6,14 +6,14 @@ navbar:
     - text: "plotly"
       href: p8105_hw6_zx2231_tc2900.html
     - text: "dashboard"
-      href: p8105_hw6_zx2321_tc2900_dashboard.html
+      href: p8105_hw6_zx2231_tc2900_dashboard.html
     - icon: fa-envelope fa-lg
       href: mailto:<augustxzh@gmail.com>
     - icon: fa-github fa-lg
-      href: https://github.com/augustxzh
+      href: https://github.com/augustxzh/p8105_hw6_zx2231_tc2900.github.io
     - icon: fa-github fa-lg
-      href: https://github.com/augustxzh/p8105_hw4_tc2900_zx2231  
+      href: https://github.com/augustxzh/p8105_hw6_shiny_zx2231_tc2900.shiny.io
 output:
-    html_document
+    html_document:
      theme: readable
     
