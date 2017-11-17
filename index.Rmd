@@ -1,14 +1,26 @@
 ---
 title: "p8105_hw6_zx2231_tc2900" 
+author: "Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)""
 ---
 
 <br>
 
 ### **p8105_hw6_zx2231_tc2900**
+<br>
+
 
 <br>
 
-Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)
+
+Since the original dataset is to big for the server, I first subset the data to only include observations ranged from the year of 2000 to the year of 2010, and save the subset to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process:
+```{r eval = FALSE}
+noaa_subset = read_csv("nynoaadat.zip") %>%
+  clean_names() %>%
+  separate(date, into = c("year", "month", "day"), sep = "-") %>%
+  select(year > 1999)
+write_csv(noaa_subset, "nynoaadat_2000_2010.csv")
+```
+
 
 1: Here is our [**dashboard**](p8105_hw6_zx2231_tc2900_dashboard.html)
 
