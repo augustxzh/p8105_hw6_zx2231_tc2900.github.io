@@ -12,12 +12,12 @@ author: "Zenghui Xue (zx2231) and Shaoxuan Chen(tc2900)""
 <br>
 
 
-Since the original dataset is to big for the server, I first subset the data to only include observations ranged from the year of 2000 to the year of 2010, and save the subset to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process:
+Since the original dataset is to big for the server, the original dataset was subsetted to only include the observations ranged from the year of 2000 to the year of 2010. The resulting subset was saved to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process.
 ```{r eval = FALSE}
 noaa_subset = read_csv("nynoaadat.zip") %>%
   clean_names() %>%
   separate(date, into = c("year", "month", "day"), sep = "-") %>%
-  select(year > 1999)
+  filter(year > 1999)
 write_csv(noaa_subset, "nynoaadat_2000_2010.csv")
 ```
 
