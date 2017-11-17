@@ -20,7 +20,7 @@ In the box plot, we first sepetate the "date" variable in to year, month, day. S
 In the scatterplot, we first seperate our data into year, month, day. Then we filter the data about station"USC00309516". We want to find the relationship between snowfall and snow depth. Then we omit the na in variables "snow" and "snwd". Finally, we make the plot about snowfall and snowdepth, and we also add the hovertext which contains the information about the precipitation.
 
 
-Since the original dataset is to big for the server, the original dataset was subsetted to only include the observations ranged from the year of 2000 to the year of 2010. The resulting subset was saved to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process.
+Since the original dataset is to big for the Shiny server, the original dataset was subsetted to include only the observations ranged from the year of 2000 to the year of 2010. The resulting subset was saved to a new csv file named "nynoaadat_2000_2010.csv". The following code was used to perform the subsetting process.
 ```{r eval = FALSE}
 noaa_subset = read_csv("nynoaadat.zip") %>%
   clean_names() %>%
